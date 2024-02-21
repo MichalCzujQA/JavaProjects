@@ -43,9 +43,6 @@ public class ArrayListApp {
         integerList.addAll(1, 2, 3, 4, 5, 6, 7);
         System.out.println(integerList);
 
-//        Integer[] array= integerList.toArray(); // dont work. need rep..
-//        System.out.println(Arrays.toString(array));
-//        System.out.println((array.length));
 
         System.out.println("\n===============================\n");
         // удалить по значению
@@ -60,9 +57,12 @@ public class ArrayListApp {
         System.out.println("numberList.isEmpty(): " + numberList.isEmpty());
         System.out.println("stringList.isEmpty: " + stringList.isEmpty());
 
-        numberList.addAll(15, 5.6, -10000, 0, 5.7,5.7F);
+        numberList.addAll(15, 5.6, -10000, 0, 5.7, 5.7F);
         System.out.println(numberList);
-//
+
+        Integer[] array = integerList.toArray(); // dont work. need rep..
+        System.out.println(Arrays.toString(array));
+        System.out.println((array.length));
 
     }
 }
