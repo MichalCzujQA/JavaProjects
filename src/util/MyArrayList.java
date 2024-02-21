@@ -142,6 +142,9 @@ public class MyArrayList<T> implements MyList<T> {
         // 2. Переписать значения в новый массив
         // 3. Вернуть новый массив из метода
 
+//        if (cursor == 0) return  (T[]) new Object();
+//        Class<T> clazz = (Class<T>)
+
         T[] result = (T[]) new Object[cursor]; // 1. Создаем массив длинной cursor(кол-во элементов внутры массива)
         for (int i = 0; i < cursor; i++) {
             result[i] = array[i];
