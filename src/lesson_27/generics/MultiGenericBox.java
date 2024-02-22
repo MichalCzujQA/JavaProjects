@@ -1,4 +1,4 @@
-package lesson_27;
+package lesson_27.generics;
 
 public class MultiGenericBox<T, V> {
     private T field1;

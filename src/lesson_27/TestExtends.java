@@ -1,10 +1,8 @@
 package lesson_27;
 
-import lesson_22.Cat;
+import lesson_27.generics.GenericMethods;
 import util.MyArrayList;
 import util.MyList;
-
-import java.util.Objects;
 
 public class TestExtends {
 

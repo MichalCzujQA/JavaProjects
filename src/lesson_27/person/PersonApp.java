@@ -1,4 +1,6 @@
-package lesson_27;
+package lesson_27.person;
+
+import lesson_27.person.Person;
 
 public class PersonApp {
     public static void main(String[] args) {

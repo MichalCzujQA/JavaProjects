@@ -1,4 +1,4 @@
-package lesson_27;
+package lesson_27.person;
 
 public class Person {
     private String email;
@@ -68,18 +68,61 @@ public class Person {
         return true;
     }
 
-    public String getPassword() {
-        return password;
-    }
     /*
-      Требования к валидности пароля
-      1.длина пароля >= 8
-      2.минимум 1 маленькая буква
-      3.мин 1 большая буква
-      4.мин 1 цифра
-      5. min спец 1 символ ("!%$@&*()[]")
+          Требования к валидности пароля
+          1.done длина пароля >= 8
+          2.done минимум 1 маленькая буква
+          3.done мин 1 большая буква
+          4. done мин 1 цифра
+          5. done min спец 1 символ ("!%$@&*()[]")
+         */
+    public boolean getPassword(String password) {
+        if (password == null || password.isEmpty()) return false;
 
-     */
+        //  done длина пароля >= 8
+        if (password.length() < 8) return false;
+
+
+        //  минимум 1 маленькая буква
+        for (int i = 0; i < password.length(); i++) {
+            if (Character.isLowerCase(password.charAt(i))) {
+                return true;
+            }
+        }
+        //done мин 1 большая буква
+        for (int i = 0; i < password.length(); i++) {
+            if (Character.isUpperCase(password.charAt(i))) {
+                return true;
+            }
+        }
+        // мин 1 цифра
+        for (int i = 0; i < password.length(); i++) {
+            if (Character.isDigit(password.charAt(i))) {
+                return true;
+            }
+        }
+
+        //in спец 1 символ ("!%$@&*()[]")
+        for (int i = 0; i < password.length(); i++) {
+            char c = password.charAt(i);
+
+
+            boolean isCharValid = (Character.isAlphabetic(c)
+                    || Character.isDigit(c)
+                    || c == '!'
+                    || c == '%'
+                    || c == '$'
+                    || c == '@'
+                    || c == '&'
+                    || c == '*');
+            if (!isCharValid) return false;
+
+
+        }
+        return true;
+
+    }
+
 
     public void setPassword(String password) {
         this.password = password;
