@@ -1,21 +1,24 @@
-package lesson_27.person;
+package lesson_28;
 
-public class Person {
+public class Member {
     private String email;
     private String password;
 
-    public Person(String email, String password) {
+    public Member(String email, String password) {
         setEmail(email);
         setPassword(password);
     }
 
     public String getEmail() {
+
         return email;
     }
 
     public void setEmail(String email) {
-        if (isEmailValid(email))
+
+        if (isEmailValid(email)){
             this.email = email;
+        }
     }
 
     /*
@@ -29,26 +32,36 @@ public class Person {
      */
     private boolean isEmailValid(String email) {
         // проверяем что пришел не null и пустая строка
-        if (email == null || email.isEmpty()) return false;
+        if (email == null || email.isEmpty()){
+            return false;
+        }
 
         //tttt@ttr@trt.net
         // 1. @ |
         int indexAt = email.indexOf("@");
-        if (indexAt <= 0 || indexAt != email.lastIndexOf("@")) return false;
+        if (indexAt <= 0 || indexAt != email.lastIndexOf("@")) {
+            return false;
+        }
 
         // 2. Должна быть точка послы собаки
         //перегрузка метода - начинает поиск с индекса ( в данном случае индекса знака @)
 
         int indexFirstDotAfterAt = email.indexOf('.', indexAt);
-        if (indexFirstDotAfterAt == -1 || indexFirstDotAfterAt == indexAt + 1) return false;
+        if (indexFirstDotAfterAt == -1 || indexFirstDotAfterAt == indexAt + 1){
+            return false;
+        }
 
         // 3. LastDot
-        if (email.lastIndexOf('.') >= email.length() - 2) return false;
+        if (email.lastIndexOf('.') >= email.length() - 2) {
+            return false;
+        }
 
         // true - если первый символ является буквой алфавита
         boolean isCharAlphabetic = Character.isAlphabetic(email.charAt(0));
 
-        if (!isCharAlphabetic) return false;
+        if (!isCharAlphabetic) {
+            return false;
+        }
 
         //5. могут присутствовать символы алфавита, цифры, "-" , "_" , "." , "@"
         for (int i = 0; i < email.length(); i++) {
@@ -61,10 +74,13 @@ public class Person {
                     || c == '_'
                     || c == '.'
                     || c == '@');
-            if (!isCharValid) return false;
+            if (!isCharValid){
+                return false;
+            }
         }
 
         // все проверки пройдены, нигде метод не вернул false ->
+
         return true;
     }
 
